@@ -1,14 +1,13 @@
-const BASE_URL = 'http://localhost:3002'
+const BASE_URL = 'https://twilio-task-backend.herokuapp.com/api/v1'
 export const getAvailablePhoneNumbers = async (countryCode) => {
-    console.log("countryCode", countryCode)
     const opt = {
-        method: "Get",
+        method: "GET",
         headers: {
-            "Content-Type": "application/json",
-            'Accept': 'application/json'
+            // "Content-Type": "application/json",
+            // 'Accept': 'application/json'
         },
     };
-    const res = await fetch(`${BASE_URL}/phoneNumbers/${countryCode}`, opt);
+    const res = await fetch(`${BASE_URL}/twilio/phoneNumbers/${countryCode}`, opt);
     const response = await res.json();
     return response.response;
 }

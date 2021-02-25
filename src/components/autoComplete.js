@@ -3,7 +3,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
-import {countries} from '../utils'
+import { countries } from '../utils'
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
 function countryToFlag(isoCode) {
@@ -35,9 +35,10 @@ export default function CountrySelect({ setCountryCode }) {
             classes={{
                 option: classes.option,
             }}
-
+            onSelect={(e)=>console.log(e)}
 
             autoHighlight
+            getOptionSelected={(option) => console.log(option.code+'sss')}
             getOptionLabel={(option) => option.label}
             renderOption={(option) => (
                 <div onClick={() => setCountryCode(option.code)}>
